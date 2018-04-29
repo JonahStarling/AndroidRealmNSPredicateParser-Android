@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AndroidRealmNSPredicateParser.iml" filepath="$PROJECT_DIR$/AndroidRealmNSPredicateParser.iml" />
-      <module fileurl="file://$PROJECT_DIR$/androidrealmnspredicateparser/androidrealmnspredicateparser.iml" filepath="$PROJECT_DIR$/androidrealmnspredicateparser/androidrealmnspredicateparser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-realm-nspredicate-parser/android-realm-nspredicate-parser.iml" filepath="$PROJECT_DIR$/android-realm-nspredicate-parser/android-realm-nspredicate-parser.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

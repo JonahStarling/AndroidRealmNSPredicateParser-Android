@@ -1,0 +1,55 @@
+apply plugin: 'com.android.library'
+apply plugin: 'realm-android'
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'android-realm-nspredicate-parser'
+
+    publishedGroupId = 'com.jonahstarling.AndroidRealmNSPredicateParser'
+    libraryName = 'AndroidRealmNSPredicateParser'
+    artifact = 'android-realm-nspredicate-parser'
+
+    libraryDescription = 'A NSPredicate Parser for Android Realm that returns a RealmQuery.'
+
+    siteUrl = 'https://github.com/JonahStarling/AndroidRealmNSPredicateParser'
+    gitUrl = 'https://github.com/JonahStarling/AndroidRealmNSPredicateParser.git'
+
+    libraryVersion = '0.0.1'
+
+    developerId = 'jonahstarling'
+    developerName = 'Jonah Starling'
+    developerEmail = 'starling.jonah@gmail.com'
+
+    licenseName = 'MIT License'
+    licenseUrl = 'https://github.com/JonahStarling/AndroidRealmNSPredicateParser/blob/master/LICENSE'
+    allLicenses = ["MIT"]
+}
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        minSdkVersion 26
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+}
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'

@@ -1,1 +1,1 @@
-include ':app', ':androidrealmnspredicateparser'
+include ':app', ':android-realm-nspredicate-parser'
