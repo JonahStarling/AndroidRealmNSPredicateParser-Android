@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'realm-android'
 
 ext {
-    bintrayRepo = 'maven'
+    bintrayRepo = 'AndroidRealmNSPredicateParser'
     bintrayName = 'android-realm-nspredicate-parser'
 
     publishedGroupId = 'com.jonahstarling.AndroidRealmNSPredicateParser'
@@ -14,7 +14,7 @@ ext {
     siteUrl = 'https://github.com/JonahStarling/AndroidRealmNSPredicateParser'
     gitUrl = 'https://github.com/JonahStarling/AndroidRealmNSPredicateParser.git'
 
-    libraryVersion = '0.0.1'
+    libraryVersion = '0.0.2'
 
     developerId = 'jonahstarling'
     developerName = 'Jonah Starling'
