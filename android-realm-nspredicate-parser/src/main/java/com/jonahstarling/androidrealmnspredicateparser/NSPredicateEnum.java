@@ -23,8 +23,9 @@ public enum NSPredicateEnum {
 
     // Aggregate Operators
     // These will probably be the hardest to implement if I was to guess
-    ANY                         (new String[]{"ANY"}, 2),
-    SOME                        (new String[]{"SOME"}, 2),
+    ANY                         (new String[]{"ANY"}, 3),
+    SOME                        (new String[]{"SOME"}, 3),
+    ALL                        (new String[]{"ALL"}, 3),
 
     // Parenthesis
     BEGIN_GROUP                 (new String[]{"("}, 0),

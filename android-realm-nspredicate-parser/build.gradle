@@ -14,7 +14,7 @@ ext {
     siteUrl = 'https://github.com/JonahStarling/AndroidRealmNSPredicateParser'
     gitUrl = 'https://github.com/JonahStarling/AndroidRealmNSPredicateParser.git'
 
-    libraryVersion = '0.0.2'
+    libraryVersion = '0.0.4'
 
     developerId = 'jonahstarling'
     developerName = 'Jonah Starling'
