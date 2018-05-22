@@ -227,101 +227,194 @@ public class NSPredicateLogic {
         Object var1 = realmQueryPart.variables.get(1);
         Object var2 = realmQueryPart.variables.get(2);
         if (var0 instanceof NSPredicateEnum) {
-            if (var1 instanceof String) {
-                if (var2 instanceof String) {
-                    NSPredicateEnum queryEnum = (NSPredicateEnum) var0;
-                    switch (queryEnum) {
-                        case EQUAL_TO: {
-                            ArrayList newList = new ArrayList<>(Arrays.asList(realmQueryPart.variables.get(1), realmQueryPart.variables.get(2)));
-                            RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.EQUAL_TO, newList);
-                            equalToLogic(realmQuery, newPart);
-                            realmQuery.findAll();
-                            break;
-                        }
-                        case NOT_EQUAL_TO: {
-                            ArrayList newList = new ArrayList<>(Arrays.asList(realmQueryPart.variables.get(1), realmQueryPart.variables.get(2)));
-                            RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.EQUAL_TO, newList);
-                            equalToLogic(realmQuery, newPart);
-                            realmQuery.findAll();
-                            break;
-                        }
-                        case IN: {
-                            ArrayList newList = new ArrayList<>(Arrays.asList(realmQueryPart.variables.get(1), realmQueryPart.variables.get(2)));
-                            RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.EQUAL_TO, newList);
-                            equalToLogic(realmQuery, newPart);
-                            realmQuery.findAll();
-                            break;
-                        }
-                        case GREATER_THAN: {
-                            ArrayList newList = new ArrayList<>(Arrays.asList(realmQueryPart.variables.get(1), realmQueryPart.variables.get(2)));
-                            RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.EQUAL_TO, newList);
-                            equalToLogic(realmQuery, newPart);
-                            realmQuery.findAll();
-                            break;
-                        }
-                        case LESS_THAN: {
-                            ArrayList newList = new ArrayList<>(Arrays.asList(realmQueryPart.variables.get(1), realmQueryPart.variables.get(2)));
-                            RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.EQUAL_TO, newList);
-                            equalToLogic(realmQuery, newPart);
-                            realmQuery.findAll();
-                            break;
-                        }
-                        case GREATER_THAN_OR_EQUAL_TO: {
-                            ArrayList newList = new ArrayList<>(Arrays.asList(realmQueryPart.variables.get(1), realmQueryPart.variables.get(2)));
-                            RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.EQUAL_TO, newList);
-                            equalToLogic(realmQuery, newPart);
-                            realmQuery.findAll();
-                            break;
-                        }
-                        case LESS_THAN_OR_EQUAL_TO: {
-                            ArrayList newList = new ArrayList<>(Arrays.asList(realmQueryPart.variables.get(1), realmQueryPart.variables.get(2)));
-                            RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.EQUAL_TO, newList);
-                            equalToLogic(realmQuery, newPart);
-                            realmQuery.findAll();
-                            break;
-                        }
-                        case BEGINS_WITH: {
-                            ArrayList newList = new ArrayList<>(Arrays.asList(realmQueryPart.variables.get(1), realmQueryPart.variables.get(2)));
-                            RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.EQUAL_TO, newList);
-                            equalToLogic(realmQuery, newPart);
-                            realmQuery.findAll();
-                            break;
-                        }
-                        case ENDS_WITH: {
-                            ArrayList newList = new ArrayList<>(Arrays.asList(realmQueryPart.variables.get(1), realmQueryPart.variables.get(2)));
-                            RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.EQUAL_TO, newList);
-                            equalToLogic(realmQuery, newPart);
-                            realmQuery.findAll();
-                            break;
-                        }
-                        case CONTAINS: {
-                            ArrayList newList = new ArrayList<>(Arrays.asList(realmQueryPart.variables.get(1), realmQueryPart.variables.get(2)));
-                            RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.EQUAL_TO, newList);
-                            equalToLogic(realmQuery, newPart);
-                            realmQuery.findAll();
-                            break;
-                        }
-                        case LIKE: {
-                            ArrayList newList = new ArrayList<>(Arrays.asList(realmQueryPart.variables.get(1), realmQueryPart.variables.get(2)));
-                            RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.EQUAL_TO, newList);
-                            equalToLogic(realmQuery, newPart);
-                            realmQuery.findAll();
-                            break;
-                        }
-                    }
+            NSPredicateEnum queryEnum = (NSPredicateEnum) var0;
+            switch (queryEnum) {
+                case EQUAL_TO: {
+                    ArrayList newList = new ArrayList<>(Arrays.asList(var1, var2));
+                    RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.EQUAL_TO, newList);
+                    equalToLogic(realmQuery, newPart);
+                    realmQuery.findAll();
+                    break;
+                }
+                case NOT_EQUAL_TO: {
+                    ArrayList newList = new ArrayList<>(Arrays.asList(var1, var2));
+                    RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.NOT_EQUAL_TO, newList);
+                    notEqualToLogic(realmQuery, newPart);
+                    realmQuery.findAll();
+                    break;
+                }
+                case IN: {
+                    ArrayList newList = new ArrayList<>(Arrays.asList(var1, var2));
+                    RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.IN, newList);
+                    inLogic(realmQuery, newPart);
+                    realmQuery.findAll();
+                    break;
+                }
+                case GREATER_THAN: {
+                    ArrayList newList = new ArrayList<>(Arrays.asList(var1, var2));
+                    RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.GREATER_THAN, newList);
+                    greaterThanLogic(realmQuery, newPart);
+                    realmQuery.findAll();
+                    break;
+                }
+                case LESS_THAN: {
+                    ArrayList newList = new ArrayList<>(Arrays.asList(var1, var2));
+                    RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.LESS_THAN, newList);
+                    lessThanLogic(realmQuery, newPart);
+                    realmQuery.findAll();
+                    break;
+                }
+                case GREATER_THAN_OR_EQUAL_TO: {
+                    ArrayList newList = new ArrayList<>(Arrays.asList(var1, var2));
+                    RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.GREATER_THAN_OR_EQUAL_TO, newList);
+                    greaterThanOrEqualToLogic(realmQuery, newPart);
+                    realmQuery.findAll();
+                    break;
+                }
+                case LESS_THAN_OR_EQUAL_TO: {
+                    ArrayList newList = new ArrayList<>(Arrays.asList(var1, var2));
+                    RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.LESS_THAN_OR_EQUAL_TO, newList);
+                    lessThanOrEqualToLogic(realmQuery, newPart);
+                    realmQuery.findAll();
+                    break;
+                }
+                case BEGINS_WITH: {
+                    ArrayList newList = new ArrayList<>(Arrays.asList(var1, var2));
+                    RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.BEGINS_WITH, newList);
+                    beginsWithLogic(realmQuery, newPart);
+                    realmQuery.findAll();
+                    break;
+                }
+                case ENDS_WITH: {
+                    ArrayList newList = new ArrayList<>(Arrays.asList(var1, var2));
+                    RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.ENDS_WITH, newList);
+                    endsWithLogic(realmQuery, newPart);
+                    realmQuery.findAll();
+                    break;
+                }
+                case CONTAINS: {
+                    ArrayList newList = new ArrayList<>(Arrays.asList(var1, var2));
+                    RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.CONTAINS, newList);
+                    containsLogic(realmQuery, newPart);
+                    realmQuery.findAll();
+                    break;
+                }
+                case LIKE: {
+                    ArrayList newList = new ArrayList<>(Arrays.asList(var1, var2));
+                    RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.LIKE, newList);
+                    likeLogic(realmQuery, newPart);
+                    realmQuery.findAll();
+                    break;
                 }
             }
         } else {
-            Log.w("Failed Query Build", "failed in like: " + realmQueryPart.toString());
+            Log.w("Failed Query Build", "failed in any: " + realmQueryPart.toString());
         }
-    }
-
-    public static void someLogic(RealmQuery realmQuery, RealmQueryPart realmQueryPart) {
-
     }
 
     public static void allLogic(RealmQuery realmQuery, RealmQueryPart realmQueryPart) {
 
+    }
+
+    public static void noneLogic(RealmQuery realmQuery, RealmQueryPart realmQueryPart) {
+        Object var0 = realmQueryPart.variables.get(0);
+        Object var1 = realmQueryPart.variables.get(1);
+        Object var2 = realmQueryPart.variables.get(2);
+        if (var0 instanceof NSPredicateEnum) {
+            NSPredicateEnum queryEnum = (NSPredicateEnum) var0;
+            switch (queryEnum) {
+                case EQUAL_TO: {
+                    ArrayList newList = new ArrayList<>(Arrays.asList(var1, var2));
+                    RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.EQUAL_TO, newList);
+                    realmQuery.not();
+                    equalToLogic(realmQuery, newPart);
+                    realmQuery.findAll();
+                    break;
+                }
+                case NOT_EQUAL_TO: {
+                    ArrayList newList = new ArrayList<>(Arrays.asList(var1, var2));
+                    RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.NOT_EQUAL_TO, newList);
+                    realmQuery.not();
+                    notEqualToLogic(realmQuery, newPart);
+                    realmQuery.findAll();
+                    break;
+                }
+                case IN: {
+                    ArrayList newList = new ArrayList<>(Arrays.asList(var1, var2));
+                    RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.IN, newList);
+                    realmQuery.not();
+                    inLogic(realmQuery, newPart);
+                    realmQuery.findAll();
+                    break;
+                }
+                case GREATER_THAN: {
+                    ArrayList newList = new ArrayList<>(Arrays.asList(var1, var2));
+                    RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.GREATER_THAN, newList);
+                    realmQuery.not();
+                    greaterThanLogic(realmQuery, newPart);
+                    realmQuery.findAll();
+                    break;
+                }
+                case LESS_THAN: {
+                    ArrayList newList = new ArrayList<>(Arrays.asList(var1, var2));
+                    RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.LESS_THAN, newList);
+                    realmQuery.not();
+                    lessThanLogic(realmQuery, newPart);
+                    realmQuery.findAll();
+                    break;
+                }
+                case GREATER_THAN_OR_EQUAL_TO: {
+                    ArrayList newList = new ArrayList<>(Arrays.asList(var1, var2));
+                    RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.GREATER_THAN_OR_EQUAL_TO, newList);
+                    realmQuery.not();
+                    greaterThanOrEqualToLogic(realmQuery, newPart);
+                    realmQuery.findAll();
+                    break;
+                }
+                case LESS_THAN_OR_EQUAL_TO: {
+                    ArrayList newList = new ArrayList<>(Arrays.asList(var1, var2));
+                    RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.LESS_THAN_OR_EQUAL_TO, newList);
+                    realmQuery.not();
+                    lessThanOrEqualToLogic(realmQuery, newPart);
+                    realmQuery.findAll();
+                    break;
+                }
+                case BEGINS_WITH: {
+                    ArrayList newList = new ArrayList<>(Arrays.asList(var1, var2));
+                    RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.BEGINS_WITH, newList);
+                    realmQuery.not();
+                    beginsWithLogic(realmQuery, newPart);
+                    realmQuery.findAll();
+                    break;
+                }
+                case ENDS_WITH: {
+                    ArrayList newList = new ArrayList<>(Arrays.asList(var1, var2));
+                    RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.ENDS_WITH, newList);
+                    realmQuery.not();
+                    endsWithLogic(realmQuery, newPart);
+                    realmQuery.findAll();
+                    break;
+                }
+                case CONTAINS: {
+                    ArrayList newList = new ArrayList<>(Arrays.asList(var1, var2));
+                    RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.CONTAINS, newList);
+                    realmQuery.not();
+                    containsLogic(realmQuery, newPart);
+                    realmQuery.findAll();
+                    break;
+                }
+                case LIKE: {
+                    ArrayList newList = new ArrayList<>(Arrays.asList(var1, var2));
+                    RealmQueryPart newPart = new RealmQueryPart(NSPredicateEnum.LIKE, newList);
+                    realmQuery.not();
+                    likeLogic(realmQuery, newPart);
+                    realmQuery.findAll();
+                    break;
+                }
+            }
+        } else {
+            Log.w("Failed Query Build", "failed in none: " + realmQueryPart.toString());
+        }
     }
 
     public static void beginGroupLogic(RealmQuery realmQuery) {
@@ -331,6 +424,5 @@ public class NSPredicateLogic {
     public static void endGroupLogic(RealmQuery realmQuery) {
         realmQuery.endGroup();
     }
-
 
 }

@@ -43,11 +43,9 @@ public class NSPredicateParser <T extends RealmObject> {
                 }
                 currentPartVariables.addAll(parseAndCastVariables(uncaughtPiece, predicatePart));
                 if (aggregateOperator) {
-                    this.realmQueryParts.add(new RealmQueryPart(NSPredicateEnum.ANY, currentPartVariables));
                     aggregateOperator = false;
-                } else {
-                    this.realmQueryParts.add(new RealmQueryPart(currentPartPredicateEnum, currentPartVariables));
                 }
+                this.realmQueryParts.add(new RealmQueryPart(currentPartPredicateEnum, currentPartVariables));
                 addEndGroups(endGroupsToAdd);
                 currentPartVariables = new ArrayList<>();
             } else {
@@ -61,9 +59,9 @@ public class NSPredicateParser <T extends RealmObject> {
                     }
                     if (predicateEnum.getPiecesNeeded() == 0) {
                         this.realmQueryParts.add(new RealmQueryPart(currentPartPredicateEnum, currentPartVariables));
-                    } else if (predicateEnum.equals(NSPredicateEnum.ANY)) {
+                    } else if (predicateEnum.getPiecesNeeded() == 3) {
                         aggregateOperator = true;
-                        currentPartPredicateEnum = NSPredicateEnum.ANY;
+                        currentPartPredicateEnum = predicateEnum;
                     } else {
                         lookingForPieces = true;
                     }
@@ -153,8 +151,12 @@ public class NSPredicateParser <T extends RealmObject> {
                     NSPredicateLogic.anyLogic(realmQuery, realmQueryPart);
                     break;
                 }
-                case SOME: {
-                    NSPredicateLogic.someLogic(realmQuery, realmQueryPart);
+                case ALL: {
+                    NSPredicateLogic.allLogic(realmQuery, realmQueryPart);
+                    break;
+                }
+                case NONE: {
+                    NSPredicateLogic.noneLogic(realmQuery, realmQueryPart);
                     break;
                 }
                 case BEGIN_GROUP: {
